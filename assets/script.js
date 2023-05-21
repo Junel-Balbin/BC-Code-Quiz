@@ -2,18 +2,21 @@
   var questions = [
     {
       question: "?",
-      options: [""],
+      choices: [""],
       answer: "",
     },
     {
       question: "?",
-      options: [""],
+      choices: [""],
       answer: "",
     },
     // Add more questions here
   ];
 
+var currentQuestionIndex = 0;
+var timeLeft = 60;
+var timerInterval;
 
-  // Place Arrays & DOM
+  // Place Variables, Arrays & DOM
 
   // Place the main functions
