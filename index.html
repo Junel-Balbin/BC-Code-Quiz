@@ -4,21 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Code Quiz</title>
+    <title>JS Code Quiz</title>
     <link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
     <main class="container">
         <div class="card" data-tilt>
-            <h1><strong>CODE QUIZ</strong></h1>
+            <h1><strong>JS CODE QUIZ</strong></h1>
                 <button id="start-quiz">Start Quiz</button>
                     <div id="quiz-container">
                         <p id="questions"></p>
                     <div id="choices"></div>
+                    <div id="result"></div>
         </div>
-        <div id="timer">Timer: <span id="time">120</span></div>
+        <div id="timer">Timer: <span id="time">90</span></div>
             <div id="score-form">
-                <label>Enter your initials:</label>
+                <label>Enter Initials:</label>
                 <input type="text" id="initials">
                 <button id="submit-score">Submit Score</button>
             </div>
@@ -26,11 +27,10 @@
             <h2>High Scores</h2>
             <ol id="score-list"></ol>
             <button id="clear-scores">Clear Scores</button>
-            <button id="start-new-game">New Quiz</button>
+            <button id="start-new-quiz">New Quiz</button>
         </div>
      </main>
-   
-    <!--Added script for tilt feature.-->
+     
     <script src="./assets/vanilla-tilt.js"></script>
     <script src="./assets/script.js"></script>
 </body>
