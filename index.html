@@ -10,10 +10,26 @@
 <body>
     <main class="container">
         <div class="card">
-            <h1>Code Quiz</h1>
+            <h1><strong>CODE QUIZ</strong></h1>
+                <button id="start-quiz">Start Quiz</button>
+                    <div id="quiz-container">
+                        <p id="questions"></p>
+                    <div id="choices"></div>
         </div>
-        <div id="timer">Timer: <span id="time">60</span></div>
+        <div id="timer">Timer: <span id="time">120</span></div>
+            <div id="score-form">
+                <label>Enter your initials:</label>
+                <input type="text" id="initials">
+                <button id="submit-score">Submit Score</button>
+            </div>
+        <div id="high-scores">
+            <h2>High Scores</h2>
+            <ol id="score-list"></ol>
+            <button id="clear-scores">Clear Scores</button>
+            <button id="start-new-game">New Quiz</button>
+        </div>
      </main>
+   
     <script src="./assets/script.js"></script>
 </body>
 </html>
