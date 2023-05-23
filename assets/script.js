@@ -5,10 +5,35 @@
       choices: ["It selects the first element that matches a CSS selector.", "It selects all elements that match a CSS selector.", "It returns the length of an array.", "It checks if an element exists in the DOM."],
       answer: "It selects all elements that match a CSS selector.",
     },
+
     {
       question: "What is the purpose of the getElementById method?",
       choices: ["It retrieves all elements that have a specific class name.", "It selects the first element that matches a CSS selector.", "It returns the element with a specified ID attribute.", "It checks if an element exists in the DOM."],
       answer: "It returns the element with a specified ID attribute.",
+    },
+
+    {
+      question: "What does the localStorage object allow you to do?",
+      choices: ["Access the browser's location information.", "Manipulate the history of visited URLs.", "Store data on the client's browser for persistent storage.", "Manage the client's session information."],
+      answer: "Store data on the client's browser for persistent storage.",
+    },
+
+    {
+      question: "What is the purpose of the addEventListener method?",
+      choices: ["It adds an event listener to an HTML element.", "It removes an event listener from an HTML element.", "It retrieves the value of an HTML element.", "It changes the CSS styling of an HTML element."],
+      answer: "It adds an event listener to an HTML element",
+    },
+
+    {
+      question: "What is the purpose of the 'return' statement in a function?",
+      choices: ["It defines the function's parameters.", "It terminates the execution of the function.", "It specifies the function's name.", "It specifies the function's output value."],
+      answer: "It specifies the function's output value.",
+    },
+
+    {
+      question: "?",
+      choices: ["", "", "", ""],
+      answer: "",
     },
     // Add more questions here
   ];
@@ -155,3 +180,8 @@ var startNewQuizButton = document.getElementById("start-new-quiz");
     timerInterval = setInterval(updateTimer, 1000);
     showQuestion();
   }
+
+  // Having a hard time where to start. 
+  // Focusing way too much on appearance.
+
+  function showQuestion()

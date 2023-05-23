@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+
 * {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: Orbitron,'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 body {
@@ -35,12 +38,13 @@ body {
     border-radius: 30px;
     background: linear-gradient(145deg, white, rgb(241, 245, 251));
     background:  rgb(241, 245, 251);
-    box-shadow:  50px 50px 100px #c4c4c7, -150px -150px 100px #ffffff;
+    box-shadow:  50px 50px 100px #c4c4c7, -100px -10px 100px #ffffff;
 }
 
 h1 {
     font-size: 40px;
-    margin-bottom: 40px;
+    margin-top: 20px;
+    margin-bottom: 30px;
 }
 
 h2 {
@@ -48,11 +52,11 @@ h2 {
 }
 
 p {
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 li {
-    margin-left: 80px;
+    margin-left: 100px;
 }
 
 button {
@@ -77,4 +81,30 @@ button:hover {
 button:active {
     color: black;
     box-shadow: inset 2px 2px 12px #c5c5c5, inset -2px -2px 12px #888888;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+}
+
+footer p:hover {
+    color: rgb(97, 7, 243);;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+footer img  {
+    background-color: none;
+    width: 30px;
+    height: 30px;
+    margin-top: -5px;
+    transform: scale(0.7);
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+footer img:hover {
+    transform: scale(0.7) rotate(360deg);
+
 }
