@@ -147,3 +147,11 @@ var clearScoresButton = document.getElementById("clear-scores");
 var startNewQuizButton = document.getElementById("start-new-quiz");
 
   // Place the main functions
+
+  // This function is called when the start button is clicked. It hides the start button, shows the quiz container, starts the timer interval, and shows the first question.
+  function startQuiz() {
+    startButton.style.display = "none";
+    quizContainer.style.display = "block";
+    timerInterval = setInterval(updateTimer, 1000);
+    showQuestion();
+  }
