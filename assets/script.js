@@ -1,9 +1,21 @@
   // Quiz questions and answers
   var questions = [
     {
+      question: "What is the correct way to write a comment in JavaScript?",
+      choices: ["<!-- This is a comment -->", "// This is a comment", "/* This is a comment */", "<!-- This is a comment -->"],
+      answer: "// This is a comment",
+    },
+    
+    {
       question: "What is the purpose of the querySelectorAll method?",
       choices: ["It selects the first element that matches a CSS selector.", "It selects all elements that match a CSS selector.", "It returns the length of an array.", "It checks if an element exists in the DOM."],
       answer: "It selects all elements that match a CSS selector.",
+    },
+
+    {
+      question: "What is the correct syntax for a function declaration?",
+      choices: ["function myFunction() { }", "let myFunction() = { }", "const myFunction = () => { }", "def myFunction(): { }"],
+      answer: "function myFunction() { }",
     },
 
     {
@@ -13,9 +25,21 @@
     },
 
     {
+      question: "What does the "&&" operator represent?",
+      choices: ["Logical OR", "Logical AND", "Logical NOT", "Equality comparison"],
+      answer: "Logical AND",
+    },
+
+    {
       question: "What does the localStorage object allow you to do?",
       choices: ["Access the browser's location information.", "Manipulate the history of visited URLs.", "Store data on the client's browser for persistent storage.", "Manage the client's session information."],
       answer: "Store data on the client's browser for persistent storage.",
+    },
+
+    {
+      question: "What does the "||" operator represent?",
+      choices: ["Logical NOT", "Logical AND", "Equality comparison", "Logical OR"],
+      answer: "Logical OR",
     },
 
     {
@@ -31,12 +55,19 @@
     },
 
     {
+      question: "What does the "===" operator compare?",
+      choices: ["Values only", "Types only", "Values and types", "None of the above"],
+      answer: "Values and types",
+    },
+
+    {
       question: "?",
       choices: ["", "", "", ""],
       answer: "",
     },
     // Add more questions here
   ];
+
 
 
 // What does the "===" operator compare?
@@ -71,9 +102,9 @@
 // Answer: array.length
 
 
-// What is the correct way to write a comment in JavaScrip?
-// // This is a comment
+// What is the correct way to write a comment in JavaScript?
 // <!-- This is a comment -->
+// // This is a comment
 // /* This is a comment */
 // <!-- This is a comment -->
 // Answer: // This is a comment
@@ -96,10 +127,10 @@
 
 
 // What does the "||" operator represent?
-// Logical OR
-// Logical AND
 // Logical NOT
+// Logical AND
 // Equality comparison
+// Logical OR
 // Answer: Logical OR
 
 
