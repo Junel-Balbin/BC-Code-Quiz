@@ -184,7 +184,7 @@
 
 
 var currentQuestionIndex = 0;
-var timeLeft = 90;
+var timeLeft = 100;
 var timerInterval;
 
 
