@@ -185,3 +185,33 @@ var startNewQuizButton = document.getElementById("start-new-quiz");
   // Focusing way too much on appearance.
 
   function showQuestion()
+
+  // Will need ADD EVENT LISTENERS.
+
+  // Will need for-loop???
+
+  // Will need function for start quiz.
+
+  // Will need function for showing questions.
+
+  // Will need function for timer.
+
+  // Will need function for choice select results.
+
+  // Will need function for handling Correct or Wrong choice.  If wrong must need to deduct time and points.
+
+  // Will need function for end of quiz.
+
+  // Will need function for end of quiz score.
+
+  // Will need function for score, high score and submitting score.
+
+  // Will need function for submitting initials.
+
+  // Will need function for saving data to local storage.
+
+  // Will need function for listing submitted initials and high scores.
+
+  // Will need function for clearing high scores.
+
+  // Will need function for want to play code quiz again.  Try again.
