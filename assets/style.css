@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
 
-
 * {
     margin: 0px;
     padding: 0px;
@@ -10,6 +9,20 @@
 
 body {
     background-color: rgb(241, 245, 251);;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 100px;
+    margin-bottom: -200px;
+    font-size: 20px;
+}
+
+header:hover {
+    font-weight: bolder;
+    cursor: pointer;
 }
 
 .container {
@@ -89,7 +102,6 @@ footer {
 }
 
 footer p:hover {
-    color: rgb(97, 7, 243);;
     font-weight: bolder;
     cursor: pointer;
 }
@@ -106,5 +118,4 @@ footer img  {
 
 footer img:hover {
     transform: scale(0.7) rotate(360deg);
-
 }
