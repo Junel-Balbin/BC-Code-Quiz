@@ -189,6 +189,7 @@ var startButton = document.getElementById("start-quiz");
 var quizContainer = document.getElementById("quiz-container");
 var questionsElement = document.getElementById("questions");
 var choicesContainer = document.getElementById("choices");
+var exitButton = document.getElementById("exit-button");
 var timeElement = document.getElementById("time");
 var scoreForm = document.getElementById("score-form");
 var initialsInput = document.getElementById("initials");
@@ -205,6 +206,7 @@ var startNewQuizButton = document.getElementById("start-new-quiz");
   // Will try to add functions for timer, choice selections, handling questions and end of quiz.
   startButton.addEventListener("click", startQuiz);
   submitScoreButton.addEventListener("click", submitScore);
+  exitButton.addEventListener("click", exitQuiz);
 
   // This function is called when the start button is clicked. It hides the start button, shows the quiz container, starts the timer interval and shows the first question.
   function startQuiz() {
@@ -283,6 +285,22 @@ var startNewQuizButton = document.getElementById("start-new-quiz");
     if (timeLeft <= 0) {
         endQuiz();
   }
+}
+
+// Function is call for exit functionality.  Reset the question index & show the start button again.  Hides the quiz container & score submission.
+function exitQuiz() {
+  currentQuestionIndex = 0;
+  startButton.style.display = "";
+
+  quizContainer.style.display = "none";
+  scoreForm.style.display = "none";
+
+  // Clears the timer interval and reset the timer.
+  if (timerInterval) {
+    clearInterval(timerInterval);
+  }
+  timeLeft = 100;
+  timeElement.textContent = timeLeft;
 }
 
   // Will need function for score, high score and submitting score.
