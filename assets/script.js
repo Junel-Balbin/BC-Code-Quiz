@@ -1,4 +1,4 @@
-  // Quiz questions and answers
+  // Quiz questions and answers.
   var questions = [
     {
       question: "What is the correct way to write a comment in JavaScript?",
@@ -184,6 +184,7 @@ var timerInterval;
 
 
 // These variables store references to various HTML elements in the document using their corresponding IDs.
+// Variables are placed in order of sequence.
 var startButton = document.getElementById("start-quiz");
 var quizContainer = document.getElementById("quiz-container");
 var questionsElement = document.getElementById("questions");
@@ -197,11 +198,14 @@ var scoreList = document.getElementById("score-list");
 var clearScoresButton = document.getElementById("clear-scores");
 var startNewQuizButton = document.getElementById("start-new-quiz");
 
-  // Place the main functions
+  // Main Functions below.
 
-  // This function is called when the start button is clicked. It hides the start button, shows the quiz container, starts the timer interval, and shows the first question.
-  // Will need function for start quiz.
-  // Not working when clicking on Start Quiz.
+  // Will need ADD EVENT LISTENERS.
+  // Added start button event listener.  On click it works but still does not show questions.
+  // Will try to add functions for timer, choice selections, handling questions and end of quiz.
+  startButton.addEventListener("click", startQuiz);
+
+  // This function is called when the start button is clicked. It hides the start button, shows the quiz container, starts the timer interval and shows the first question.
   function startQuiz() {
     startButton.style.display = "none";
     quizContainer.style.display = "block";
@@ -210,8 +214,7 @@ var startNewQuizButton = document.getElementById("start-new-quiz");
   }
 
 
-  // Will need function for showing questions.
-  // Not working.  Questions not showing up.
+  //This function displays the current question and its choices. It shows buttons for each choice and adds event listeners to handle the choice click.
   function showQuestion() {
     var currentQuestion = questions[currentQuestionIndex];
     questionsElement.textContent = currentQuestion.question;
@@ -225,14 +228,7 @@ var startNewQuizButton = document.getElementById("start-new-quiz");
         choicesContainer.appendChild(choiceButton);
     }
   }
-  
-  // Will need ADD EVENT LISTENERS.
-  // Added start button event listener.  On click it works but still does not show questions.
-  // Will try to add functions for timer, choice selections, handling questions and end of quiz.
-  startButton.addEventListener("click", startQuiz);
 
-
-  // Did not know what I was doing.  Google searched. 
   // This function is called when a choice button is clicked. It checks if the selected choice matches the correct answer, penalty for wrong answers, updates the question index and either shows the next question or ends the quiz.
   function handleChoiceClick(event) {
     var selectedChoice = event.target.textContent;
@@ -272,19 +268,29 @@ var startNewQuizButton = document.getElementById("start-new-quiz");
 }
 
 
-  // Will need function for handling Correct or Wrong choice.  If wrong must need to deduct time and points.
-  // function displayResult() {}
+  // This function is called when the quiz ends. It clears the timer interval, hides the quiz       container and shows the score submission form.
+  // Utilized the style display none to quiz container.
+  function endQuiz() {
+    clearInterval(timerInterval);
+    quizContainer.style.display = "none";
+    scoreForm.style.display = "block";
+}
 
 
+  // This function is called by the timer interval to update the remaining time and check if the time has run out. If the time is zero or less the quiz ends.
+  function updateTimer() {
+    timeLeft--;
+    timeElement.textContent = timeLeft;
 
-  // Will need function for timer.
-  // function timer() {}
+    if (timeLeft <= 0) {
+        endQuiz();
+  }
+}
+  // Thank you Google!
+  // Questions are showing, selecting answer choices are working.
+  // Correct and Wrong selection are showing but not on the last question.  Need to figure that out.
+  // Need to work on submitting score.
 
-
-
-  // Will need function for end of quiz.
-  // Will need function for end of quiz score.
-  // function endQuiz() {}
 
 
 
@@ -307,7 +313,6 @@ var startNewQuizButton = document.getElementById("start-new-quiz");
   // Will need for-loop???
 
  
-
   // Will need function for clearing high scores.
 
   // Will need function for want to play code quiz again.  Try again.

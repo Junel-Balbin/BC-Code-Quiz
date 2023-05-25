@@ -143,3 +143,8 @@ footer img  {
 footer img:hover {
     transform: scale(0.7) rotate(360deg);
 }
+
+#result {
+    margin-bottom: 10px;
+    color:rgb(93, 15, 218)
+}
