@@ -25,7 +25,7 @@
     },
 
     {
-      question: "What does the "&&" operator represent?",
+      question: "What does the && operator represent?",
       choices: ["Logical OR", "Logical AND", "Logical NOT", "Equality comparison"],
       answer: "Logical AND",
     },
@@ -37,7 +37,7 @@
     },
 
     {
-      question: "What does the "||" operator represent?",
+      question: "What does the || operator represent?",
       choices: ["Logical NOT", "Logical AND", "Equality comparison", "Logical OR"],
       answer: "Logical OR",
     },
@@ -45,7 +45,7 @@
     {
       question: "What is the purpose of the addEventListener method?",
       choices: ["It adds an event listener to an HTML element.", "It removes an event listener from an HTML element.", "It retrieves the value of an HTML element.", "It changes the CSS styling of an HTML element."],
-      answer: "It adds an event listener to an HTML element",
+      answer: "It adds an event listener to an HTML element.",
     },
 
     {
@@ -55,16 +55,11 @@
     },
 
     {
-      question: "What does the "===" operator compare?",
+      question: "What does the === operator compare?",
       choices: ["Values only", "Types only", "Values and types", "None of the above"],
       answer: "Values and types",
-    },
+    }
 
-    {
-      question: "?",
-      choices: ["", "", "", ""],
-      answer: "",
-    },
     // Add more questions here
   ];
 
@@ -205,6 +200,7 @@ var startNewQuizButton = document.getElementById("start-new-quiz");
   // Place the main functions
 
   // This function is called when the start button is clicked. It hides the start button, shows the quiz container, starts the timer interval, and shows the first question.
+  // Not working when clicking on Start Quiz.
   function startQuiz() {
     startButton.style.display = "none";
     quizContainer.style.display = "block";
@@ -212,10 +208,25 @@ var startNewQuizButton = document.getElementById("start-new-quiz");
     showQuestion();
   }
 
-  // Having a hard time where to start. 
-  // Focusing way too much on appearance.
 
-  function showQuestion()
+  // Will need function for showing questions.
+  // Not working.  Questions not showing up.
+  function showQuestion() {
+    var currentQuestion = questions[currentQuestionIndex];
+    questionsElement.textContent = currentQuestion.question;
+    choicesContainer.innerHTML = "";
+  
+    for (let i = 0; i < currentQuestion.choices.length; i++) {
+        var choice = currentQuestion.choices[i];
+        var choiceButton = document.createElement("button");
+        choiceButton.textContent = choice;
+        choiceButton.addEventListener("click", handleChoiceClick);
+        choicesContainer.appendChild(choiceButton);
+    }
+  }
+  
+
+
 
   // Will need ADD EVENT LISTENERS.
 
