@@ -60,10 +60,7 @@
       answer: "Values and types",
     }
 
-    // Add more questions here
   ];
-
-
 
 // What does the "===" operator compare?
 // Values only
@@ -177,11 +174,9 @@
 // Answer: It adds an event listener to an HTML element.
 
 
-
 var currentQuestionIndex = 0;
 var timeLeft = 100;
 var timerInterval;
-
 
 // These variables store references to various HTML elements in the document using their corresponding IDs.
 // Variables are placed in order of sequence.
@@ -199,14 +194,15 @@ var scoreList = document.getElementById("score-list");
 var clearScoresButton = document.getElementById("clear-scores");
 var startNewQuizButton = document.getElementById("start-new-quiz");
 
-  // Main Functions below.
-
-  // Will need ADD EVENT LISTENERS.
-  // Added start button event listener.  On click it works but still does not show questions.
-  // Will try to add functions for timer, choice selections, handling questions and end of quiz.
+  // Add Event Listeners for main click buttons. 
   startButton.addEventListener("click", startQuiz);
   submitScoreButton.addEventListener("click", submitScore);
   exitButton.addEventListener("click", exitQuiz);
+  clearScoresButton.addEventListener("click", clearScores);
+  startNewQuizButton.addEventListener("click", startNewQuiz);
+
+
+  // Main Functions below.
 
   // This function is called when the start button is clicked. It hides the start button, shows the quiz container, starts the timer interval and shows the first question.
   function startQuiz() {
@@ -231,16 +227,15 @@ var startNewQuizButton = document.getElementById("start-new-quiz");
     }
   }
 
-  // This function is called when a choice button is clicked. It checks if the selected choice matches the correct answer, penalty for wrong answers, updates the question index and either shows the next question or ends the quiz.
+  // Correct and Wrong selection are showing but not on the last question.  Need to figure that out.
+  // This function is called when a choice button is clicked. It checks if the selected choice matches the correct answer, penalty of 10 seconds for wrong answers, updates the question index and either shows the next question or ends the quiz.
   function handleChoiceClick(event) {
     var selectedChoice = event.target.textContent;
     var currentQuestion = questions[currentQuestionIndex];
 
     if (selectedChoice === currentQuestion.answer) {
-        // Handles correct answer.
         displayResult("Correct!");
     } else {
-        // Handles wrong answer. Penalty of 10 seconds for wrong answer.
         displayResult("Wrong!");
         timeLeft -= 10; 
         if (timeLeft < 0) {
@@ -257,13 +252,12 @@ var startNewQuizButton = document.getElementById("start-new-quiz");
   }
 }
 
-  // This function displays the result of the choice selected if correct or wrong.
+  // This function displays the result of the choice selected if correct or wrong. Hides the results after 1 second.
   function displayResult(result) {
     var resultElement = document.getElementById("result");
     resultElement.textContent = result;
     resultElement.style.display = "block";
 
-  // Hides the result after 1 second.
   setTimeout(function () {
     resultElement.style.display = "none";
   }, 900);
@@ -287,7 +281,7 @@ var startNewQuizButton = document.getElementById("start-new-quiz");
   }
 }
 
-// Function is call for exit functionality.  Reset the question index & show the start button again.  Hides the quiz container & score submission.
+// This function is for exit functionality.  Reset the question index & show the start button again.  Hides the quiz container & score submission. Clears the timer interval and resets the timer.
 function exitQuiz() {
   currentQuestionIndex = 0;
   startButton.style.display = "";
@@ -295,20 +289,12 @@ function exitQuiz() {
   quizContainer.style.display = "none";
   scoreForm.style.display = "none";
 
-  // Clears the timer interval and reset the timer.
   if (timerInterval) {
     clearInterval(timerInterval);
   }
   timeLeft = 100;
   timeElement.textContent = timeLeft;
 }
-
-  // Will need function for score, high score and submitting score.
-  // function submitScore() {}
-  // function highScore() {}
-  // Will need function for submitting initials.
-  // Will need function for listing submitted initials and high scores.
-  // function initials() {}
 
   // This function is called when the submit score button is clicked. Retrieves entered users initials. Creates a score object with the initials and remaining time, updates the high scores array, saves the high scores to local storage and shows the high scores.
   function submitScore() {
@@ -328,10 +314,6 @@ function exitQuiz() {
       showHighScores();
   }
 }
-
-// Will need function for saving data to local storage.
-// localStorage.getItem
-// JSON.parse
 
 // This function retrieves the high scores array from local storage. If the high scores exist, it parses the JSON data and returns the array. If not, it returns an empty array.
   function getHighScores() {
@@ -364,14 +346,20 @@ function exitQuiz() {
   }
 }
 
-  // Thank you Google!
+// This function is called when clear scores is clicked.  Resets the score list to none.
+  function clearScores() {
+    localStorage.removeItem("highScores");
+    scoreList.innerHTML = "";
+}
 
-  // Correct and Wrong selection are showing but not on the last question.  Need to figure that out.
-
-  // Will need function for viewing high score before taking quiz.
-
-  // Will need function for exiting while taking quiz.
- 
-  // Will need function for clearing high scores.
-
-  // Will need function for want to play code quiz again.  Try again.
+// This function is called when try again button is clicked.  Reset the timer and question index.
+  function startNewQuiz() {
+    clearInterval(timerInterval);
+    quizContainer.style.display = "none";
+    scoreForm.style.display = "none";
+    highScoresElement.style.display = "none";
+    scoreList.innerHTML = "";
+    timeLeft = 100; 
+    currentQuestionIndex = 0; 
+    startQuiz();
+}
