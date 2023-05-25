@@ -200,6 +200,7 @@ var startNewQuizButton = document.getElementById("start-new-quiz");
   // Place the main functions
 
   // This function is called when the start button is clicked. It hides the start button, shows the quiz container, starts the timer interval, and shows the first question.
+  // Will need function for start quiz.
   // Not working when clicking on Start Quiz.
   function startQuiz() {
     startButton.style.display = "none";
@@ -225,34 +226,52 @@ var startNewQuizButton = document.getElementById("start-new-quiz");
     }
   }
   
-
-
-
   // Will need ADD EVENT LISTENERS.
+  // Added start button event listener.  On click it works but still does not show questions.
+  // Will try to add functions for timer, choice selections, handling questions and end of quiz.
+  startButton.addEventListener("click", startQuiz);
 
-  // Will need for-loop???
-
-  // Will need function for start quiz.
-
-  // Will need function for showing questions.
-
-  // Will need function for timer.
 
   // Will need function for choice select results.
+  // function handleChoiceClick() {}
+  
+
 
   // Will need function for handling Correct or Wrong choice.  If wrong must need to deduct time and points.
+  // function displayResult() {}
+
+
+
+  // Will need function for timer.
+  // function timer() {}
+
+
 
   // Will need function for end of quiz.
-
   // Will need function for end of quiz score.
+  // function endQuiz() {}
+
+
 
   // Will need function for score, high score and submitting score.
+  // function submitScore() {}
+  // function highScore() {}
+
+
 
   // Will need function for submitting initials.
+  // Will need function for listing submitted initials and high scores.
+  // function initials() {}
+
 
   // Will need function for saving data to local storage.
+  // localStorage.getItem
+  // JSON.parse
 
-  // Will need function for listing submitted initials and high scores.
+  
+  // Will need for-loop???
+
+ 
 
   // Will need function for clearing high scores.
 
