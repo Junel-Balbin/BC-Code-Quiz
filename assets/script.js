@@ -232,9 +232,44 @@ var startNewQuizButton = document.getElementById("start-new-quiz");
   startButton.addEventListener("click", startQuiz);
 
 
-  // Will need function for choice select results.
-  // function handleChoiceClick() {}
-  
+  // Did not know what I was doing.  Google searched. 
+  // This function is called when a choice button is clicked. It checks if the selected choice matches the correct answer, penalty for wrong answers, updates the question index and either shows the next question or ends the quiz.
+  function handleChoiceClick(event) {
+    var selectedChoice = event.target.textContent;
+    var currentQuestion = questions[currentQuestionIndex];
+
+    if (selectedChoice === currentQuestion.answer) {
+        // Handles correct answer.
+        displayResult("Correct!");
+    } else {
+        // Handles wrong answer. Penalty of 10 seconds for wrong answer.
+        displayResult("Wrong!");
+        timeLeft -= 10; 
+        if (timeLeft < 0) {
+            timeLeft = 0;
+    }
+  }
+
+  currentQuestionIndex++;
+
+  if (currentQuestionIndex < questions.length) {
+      showQuestion();
+  } else {
+      endQuiz();
+  }
+}
+
+  // This function displays the result of the choice selected if correct or wrong.
+  function displayResult(result) {
+    var resultElement = document.getElementById("result");
+    resultElement.textContent = result;
+    resultElement.style.display = "block";
+
+  // Hides the result after 1 second.
+  setTimeout(function () {
+    resultElement.style.display = "none";
+  }, 900);
+}
 
 
   // Will need function for handling Correct or Wrong choice.  If wrong must need to deduct time and points.
