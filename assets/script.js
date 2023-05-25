@@ -204,6 +204,7 @@ var startNewQuizButton = document.getElementById("start-new-quiz");
   // Added start button event listener.  On click it works but still does not show questions.
   // Will try to add functions for timer, choice selections, handling questions and end of quiz.
   startButton.addEventListener("click", startQuiz);
+  submitScoreButton.addEventListener("click", submitScore);
 
   // This function is called when the start button is clicked. It hides the start button, shows the quiz container, starts the timer interval and shows the first question.
   function startQuiz() {
@@ -212,7 +213,6 @@ var startNewQuizButton = document.getElementById("start-new-quiz");
     timerInterval = setInterval(updateTimer, 1000);
     showQuestion();
   }
-
 
   //This function displays the current question and its choices. It shows buttons for each choice and adds event listeners to handle the choice click.
   function showQuestion() {
@@ -267,7 +267,6 @@ var startNewQuizButton = document.getElementById("start-new-quiz");
   }, 900);
 }
 
-
   // This function is called when the quiz ends. It clears the timer interval, hides the quiz       container and shows the score submission form.
   // Utilized the style display none to quiz container.
   function endQuiz() {
@@ -275,7 +274,6 @@ var startNewQuizButton = document.getElementById("start-new-quiz");
     quizContainer.style.display = "none";
     scoreForm.style.display = "block";
 }
-
 
   // This function is called by the timer interval to update the remaining time and check if the time has run out. If the time is zero or less the quiz ends.
   function updateTimer() {
@@ -286,32 +284,75 @@ var startNewQuizButton = document.getElementById("start-new-quiz");
         endQuiz();
   }
 }
-  // Thank you Google!
-  // Questions are showing, selecting answer choices are working.
-  // Correct and Wrong selection are showing but not on the last question.  Need to figure that out.
-  // Need to work on submitting score.
-
-
-
 
   // Will need function for score, high score and submitting score.
   // function submitScore() {}
   // function highScore() {}
-
-
-
   // Will need function for submitting initials.
   // Will need function for listing submitted initials and high scores.
   // function initials() {}
 
+  // This function is called when the submit score button is clicked. Retrieves entered users initials. Creates a score object with the initials and remaining time, updates the high scores array, saves the high scores to local storage and shows the high scores.
+  function submitScore() {
+    var initials = initialsInput.value.trim();
 
-  // Will need function for saving data to local storage.
-  // localStorage.getItem
-  // JSON.parse
+    if (initials !== "") {
+      var score = {
+          initials: initials,
+          time: timeLeft
+      };
 
-  
-  // Will need for-loop???
+      var highScores = getHighScores();
+      highScores.push(score);
+      highScores.sort((a, b) => b.time - a.time);
 
+      saveHighScores(highScores);
+      showHighScores();
+  }
+}
+
+// Will need function for saving data to local storage.
+// localStorage.getItem
+// JSON.parse
+
+// This function retrieves the high scores array from local storage. If the high scores exist, it parses the JSON data and returns the array. If not, it returns an empty array.
+  function getHighScores() {
+    var highScores = localStorage.getItem("highScores");
+
+    if (highScores) {
+        return JSON.parse(highScores);
+    } else {
+        return [];
+  }
+}
+
+// This function saves the high scores array to local storage by converting it to a JSON string.
+  function saveHighScores(highScores) {
+    localStorage.setItem("highScores", JSON.stringify(highScores));
+}
+
+//This function displays the high scores on the page. Hides the score submission form, shows the high scores element and creates list items for each high score.
+  function showHighScores() {
+    var highScores = getHighScores();
+    scoreForm.style.display = "none";
+    highScoresElement.style.display = "block";
+    scoreList.innerHTML = "";
+
+    for (let i = 0; i < highScores.length; i++) {
+        var score = highScores[i];
+        var scoreItem = document.createElement("li");
+        scoreItem.textContent = `${score.initials}: ${score.time}`;
+        scoreList.appendChild(scoreItem);
+  }
+}
+
+  // Thank you Google!
+
+  // Correct and Wrong selection are showing but not on the last question.  Need to figure that out.
+
+  // Will need function for viewing high score before taking quiz.
+
+  // Will need function for exiting while taking quiz.
  
   // Will need function for clearing high scores.
 
