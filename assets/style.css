@@ -137,6 +137,11 @@ button:active {
     box-shadow: inset 2px 2px 12px #c5c5c5, inset -2px -2px 12px #888888;
 }
 
+#start-quiz {
+    margin-top: 0px;
+    margin-bottom: 25px;
+}
+
 footer {
     display: flex;
     justify-content: center;
