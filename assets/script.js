@@ -227,30 +227,40 @@ var startNewQuizButton = document.getElementById("start-new-quiz");
     }
   }
 
-  // Correct and Wrong selection are showing but not on the last question.  Need to figure that out.
-  // This function is called when a choice button is clicked. It checks if the selected choice matches the correct answer, penalty of 10 seconds for wrong answers, updates the question index and either shows the next question or ends the quiz.
+
+  // This function is called when a choice button is clicked. It checks if the selected choice matches the correct answer, penalty of 10 seconds for wrong answers, updates the question index and either shows the next question or ends the quiz. Delay the display of the result for the last question.
   function handleChoiceClick(event) {
     var selectedChoice = event.target.textContent;
     var currentQuestion = questions[currentQuestionIndex];
-
-    if (selectedChoice === currentQuestion.answer) {
+  
+    if (selectedChoice !== undefined) {
+      if (selectedChoice === currentQuestion.answer) {
         displayResult("Correct!");
-    } else {
+      } else {
         displayResult("Wrong!");
-        timeLeft -= 10; 
+        timeLeft -= 10;
         if (timeLeft < 0) {
             timeLeft = 0;
+        }
+      }
+    }
+  
+    currentQuestionIndex++;
+  
+    if (currentQuestionIndex === questions.length) {
+      setTimeout(function() {
+        if (selectedChoice === currentQuestion.answer) {
+          displayResult("Correct!");
+        } else {
+          displayResult("Wrong!");
+        }
+        endQuiz();
+      }, 1400);
+    } else {
+      showQuestion();
     }
   }
-
-  currentQuestionIndex++;
-
-  if (currentQuestionIndex < questions.length) {
-      showQuestion();
-  } else {
-      endQuiz();
-  }
-}
+  
 
   // This function displays the result of the choice selected if correct or wrong. Hides the results after 1 second.
   function displayResult(result) {
